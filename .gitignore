@@ -1,0 +1,17 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/packages
+/WorkerApp.Domain/bin/Debug
+/WorkerApp.Domain/obj
+/WorkerApp.MVC/bin
+/WorkerApp.MVC/obj
+/WorkerApp.MVC/WorkerFiles
+/WorkerApp.MVC.Tests/bin/Debug
+/WorkerApp.MVC.Tests/obj
+/WorkerApp.Repository/bin/Debug
+/WorkerApp.Repository/obj
+/WorkerApp.Service/bin/Debug
+/WorkerApp.Service/obj

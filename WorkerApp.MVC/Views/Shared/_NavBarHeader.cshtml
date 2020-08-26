@@ -1,0 +1,48 @@
+﻿<div class="col-12 header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark container">
+        @if (User.Identity.IsAuthenticated && User.IsInRole(WorkerApp.MVC.Utilities.Constants.roleAdmin))
+        {
+            <a class="navbar-brand" href="@Url.Action("Main", "Home")">Worker App</a>
+        }
+        else
+        {
+            <a class="navbar-brand" href="@Url.Action("Index", "Home")">Worker App</a>
+        }
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                @if (User.Identity.IsAuthenticated && User.IsInRole(WorkerApp.MVC.Utilities.Constants.roleAdmin))
+                {
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "File")">Files</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Person")">People</a>
+                    </li>
+                }
+            </ul>
+            <ul class="navbar-nav">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Logout", "User")">Sign Out</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Register", "User")">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Login", "User")">Sign In</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </nav>
+</div>
+
+

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<WorkerApp.MVC.Models.PersonViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    h1 {
+        padding-top: 10px;
+    }
+
+    .card {
+        width: 200px;
+        margin: 15px 60px 20px 15px;
+    }
+
+    img {
+        height: 200px;
+    }
+
+    .row {
+        margin: auto;
+    }
+
+    hr {
+        border: 4px solid groove;
+    }
+</style>
+
+<h1>Workers</h1>
+<hr />
+<div class="row">
+    @foreach (var worker in Model)
+    {
+        { worker.Photo = worker.Photo ?? "/StaticFiles/images/default-image.jpg"; }
+
+        <div class="card text-right">
+            <img src="@worker.Photo" class="card-img-top" alt="@worker.Names">
+            <div class="card-body">
+                <h5 class="card-title">@worker.Names @worker.Surnames</h5>
+                <p class="card-text">@worker.Profession</p>
+                <button class="btn btn-primary worker" onclick="redirecToWorker('@worker.PersonId')"><i class="fas fa-user-check"></i> View Profile</button>
+            </div>
+        </div>
+    }
+</div>
+
+@section scripts {
+    <script src="~/StaticFiles/js/pages/people.min.js"></script>
+}

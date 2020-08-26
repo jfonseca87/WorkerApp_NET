@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "Files";
+}
+
+<style>
+    .file-data {
+        display: none;
+        height:500px !important;
+    }
+
+    .no-data {
+        display: none;
+    }
+</style>
+
+<div class="message-container pt-1"></div>
+
+<div class="pt-3 pb-3">
+    <button class="btn btn-primary new-file"><i class="far fa-file"></i> New File </button>
+</div>
+
+<div class="alert alert-dark no-data" role="alert">
+    There are no files yet.
+</div>
+<div class="file-data">
+    <div class="table-bordered table-striped thead-dark" id="files-table"></div>
+</div>
+
+@*Modal Form*@
+<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Worker App</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="danger-container-modal"></div>
+                <form>
+                    <input type="hidden" name="FiledId" value="" />
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="File Type" name="FileType">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="Allowed Extensions" name="AllowedExtensions"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="far fa-window-close"></i> Cancel </button>
+                <button id="btnSave" type="button" class="btn btn-primary"><i class="far fa-save"></i> Save </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Modal Delete Confirmation*@
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Worker App</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure to delete this record?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"> <i class="far fa-window-close"></i> Cancel</button>
+                <button type="button" class="btn btn-primary" id="btnDelete"><i class="fas fa-trash-alt"></i> Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="~/StaticFiles/js/pages/file.min.js"></script>
+}
+

@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/StaticFiles/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/StaticFiles/css/all.min.css" rel="stylesheet" />
+    <link href="~/StaticFiles/css/tabulator_bootstrap4.min.css" rel="stylesheet" />
+    <style>
+        .header {
+            background-color: #343a40;
+            height: 55.98px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        @{ Html.RenderAction("Menu", "Home"); }
+    </header>
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <script src="~/StaticFiles/js/jquery-3.4.1.min.js"></script>
+    <script src="~/StaticFiles/js/popper.min.js"></script>
+    <script src="~/StaticFiles/js/bootstrap.min.js"></script>
+    <script src="~/StaticFiles/js/utilities.min.js"></script>
+    <script src="~/StaticFiles/js/tabulator.min.js"></script>
+    @RenderSection("scripts", false)
+</body>
+</html>
